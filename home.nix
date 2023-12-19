@@ -44,15 +44,15 @@
     # ".screenrc".source = dotfiles/screenrc;
     ".config/nvim/lua".source = ./nvim/lua;
     ".config/nvim/after".source = ./nvim/after;
-    ".config/alacritty".source = ./nvim/alacritty;
-    ".config/nvim/bspwm".source = ./nvim/bspwm;
-    ".config/nvim/kitty".source = ./nvim/kitty;
-    ".config/nvim/neofetch".source = ./nvim/neofetch;
-    ".config/nvim/old-polybar".source = ./nvim/old-polybar;
-    ".config/nvim/picom".source = ./nvim/picom;
-    ".config/nvim/polybar".source = ./nvim/polybar;
-    ".config/nvim/ranger".source = ./nvim/ranger;
-    ".config/nvim/tint2".source = ./nvim/tint2;
+    ".config/alacritty".source = ./alacritty;
+    ".config/bspwm".source = ./bspwm;
+    ".config/kitty".source = ./kitty;
+    ".config/neofetch".source = ./neofetch;
+    ".config/old-polybar".source = ./old-polybar;
+    ".config/picom".source = ./picom;
+    ".config/polybar".source = ./polybar;
+    ".config/ranger".source = ./ranger;
+    ".config/tint2".source = ./tint2;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

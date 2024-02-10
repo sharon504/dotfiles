@@ -1,0 +1,12 @@
+opacity: 1.0
+font:
+  normal:
+    family: Source Code Pro
+    style: medium
+  bold:
+    family: Source Code Pro
+    style: Bold
+  italic:
+    family: Source Code Pro
+    style: MediumItalic
+size: 8.0

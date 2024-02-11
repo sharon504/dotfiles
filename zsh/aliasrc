@@ -48,13 +48,41 @@ alias nvimrc='${=EDITOR} ~/.config/nvim/'
 alias iwmrc='${=EDITOR} ~/.config/i3/config'
 alias picomrc='${=EDITOR} ~/.config/picom/picom.conf'
 alias polyrc='${=EDITOR} ~/.config/polybar/config.ini'
-alias work='cd ~/WorkDir/'
 alias poweroff='sudo poweroff'
 alias restart='sudo reboot'
 alias qt='exit'
 alias pn='ping google.com -c4'
 alias update='sudo apt update && sudo apt dist-upgrade && sudo apt autoremove'
 alias install_='sudo apt install'
+
+work(){
+    if [ -n "$1" ]
+    then
+        cd /home/alpha/WorkDir/"$1"
+    else
+        cd /home/alpha/WorkDir/
+    fi
+}
+
+git_(){
+    git add .
+    if [ -n "$1" ]
+    then
+        git commit -m "$1"
+    else
+        git commit -m "update"
+    fi
+}
+git__(){
+    git add .
+    if [ -n "$1" ]
+    then
+        git commit -m "$1"
+    else
+        git commit -m "update"
+    fi
+    git push
+}
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '

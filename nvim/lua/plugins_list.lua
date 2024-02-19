@@ -1,5 +1,9 @@
 return {
 	-- 'HiPhish/nvim-ts-rainbow2',
+	{
+		"github/copilot.vim",
+		lazy = false,
+	},
 	"windwp/nvim-ts-autotag",
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	{
@@ -11,7 +15,6 @@ return {
 		"rest-nvim/rest.nvim",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
-	"pocco81/auto-save.nvim",
 	{ "kosayoda/nvim-lightbulb" },
 	{
 		"mcauley-penney/tidy.nvim",

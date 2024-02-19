@@ -1051,3 +1051,146 @@
 2024-02-11 08:18:03 Success.
 2024-02-11 08:18:03 Latest version is 1.5.3
 2024-02-11 08:18:03 App is up to date.
+2024-02-11 09:18:02 Checking for update using Github
+2024-02-11 09:18:03 Success.
+2024-02-11 09:18:03 Latest version is 1.5.3
+2024-02-11 09:18:03 App is up to date.
+2024-02-11 10:18:02 Checking for update using Github
+2024-02-11 10:18:04 Success.
+2024-02-11 10:18:04 Latest version is 1.5.3
+2024-02-11 10:18:04 App is up to date.
+2024-02-11 11:18:02 Checking for update using Github
+2024-02-11 11:18:02 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 11:18:02 Checking for update using obsidian.md
+2024-02-11 11:18:02 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 12:18:02 Checking for update using Github
+2024-02-11 12:18:02 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 12:18:02 Checking for update using obsidian.md
+2024-02-11 12:18:02 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 13:18:03 Checking for update using Github
+2024-02-11 13:18:03 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 13:18:03 Checking for update using obsidian.md
+2024-02-11 13:18:03 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 14:18:03 Checking for update using Github
+2024-02-11 14:18:03 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 14:18:03 Checking for update using obsidian.md
+2024-02-11 14:18:03 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 15:18:03 Checking for update using Github
+2024-02-11 15:18:03 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 15:18:03 Checking for update using obsidian.md
+2024-02-11 15:18:03 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 16:18:03 Checking for update using Github
+2024-02-11 16:18:03 Success.
+2024-02-11 16:18:03 Latest version is 1.5.3
+2024-02-11 16:18:03 App is up to date.
+2024-02-11 17:18:03 Checking for update using Github
+2024-02-11 17:18:03 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 17:18:03 Checking for update using obsidian.md
+2024-02-11 17:18:03 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 18:18:03 Checking for update using Github
+2024-02-11 18:18:03 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 18:18:03 Checking for update using obsidian.md
+2024-02-11 18:18:03 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 19:18:03 Checking for update using Github
+2024-02-11 19:18:03 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 19:18:03 Checking for update using obsidian.md
+2024-02-11 19:18:03 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 20:18:03 Checking for update using Github
+2024-02-11 20:18:03 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 20:18:03 Checking for update using obsidian.md
+2024-02-11 20:18:03 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 21:18:03 Checking for update using Github
+2024-02-11 21:18:03 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-11 21:18:03 Checking for update using obsidian.md
+2024-02-11 21:18:03 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 13:41:03 Loading main app package /tmp/.mount_Obsidi17XHA5/resources/obsidian.asar
+2024-02-12 13:41:04 Checking for update using Github
+2024-02-12 13:41:04 Success.
+2024-02-12 13:41:04 Latest version is 1.5.3
+2024-02-12 13:41:04 App is up to date.
+2024-02-12 13:41:15 Loading main app package /tmp/.mount_ObsidiM98WgW/resources/obsidian.asar
+2024-02-12 13:41:15 Checking for update using Github
+2024-02-12 14:41:03 Checking for update using Github
+2024-02-12 14:41:04 Success.
+2024-02-12 14:41:04 Latest version is 1.5.3
+2024-02-12 14:41:04 App is up to date.
+2024-02-12 15:41:04 Checking for update using Github
+2024-02-12 15:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 15:41:04 Checking for update using obsidian.md
+2024-02-12 15:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 16:41:04 Checking for update using Github
+2024-02-12 16:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 16:41:04 Checking for update using obsidian.md
+2024-02-12 16:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 17:41:04 Checking for update using Github
+2024-02-12 17:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 17:41:04 Checking for update using obsidian.md
+2024-02-12 17:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 18:41:04 Checking for update using Github
+2024-02-12 18:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 18:41:04 Checking for update using obsidian.md
+2024-02-12 18:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 19:41:04 Checking for update using Github
+2024-02-12 19:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 19:41:04 Checking for update using obsidian.md
+2024-02-12 19:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 20:41:04 Checking for update using Github
+2024-02-12 20:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 20:41:04 Checking for update using obsidian.md
+2024-02-12 20:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 21:41:04 Checking for update using Github
+2024-02-12 21:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 21:41:04 Checking for update using obsidian.md
+2024-02-12 21:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 22:41:04 Checking for update using Github
+2024-02-12 22:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 22:41:04 Checking for update using obsidian.md
+2024-02-12 22:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 23:41:04 Checking for update using Github
+2024-02-12 23:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-12 23:41:04 Checking for update using obsidian.md
+2024-02-12 23:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 00:41:04 Checking for update using Github
+2024-02-13 00:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 00:41:04 Checking for update using obsidian.md
+2024-02-13 00:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 01:41:04 Checking for update using Github
+2024-02-13 01:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 01:41:04 Checking for update using obsidian.md
+2024-02-13 01:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 02:41:04 Checking for update using Github
+2024-02-13 02:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 02:41:04 Checking for update using obsidian.md
+2024-02-13 02:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 03:41:04 Checking for update using Github
+2024-02-13 03:41:04 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 03:41:04 Checking for update using obsidian.md
+2024-02-13 03:41:04 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 04:41:05 Checking for update using Github
+2024-02-13 04:41:05 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 04:41:05 Checking for update using obsidian.md
+2024-02-13 04:41:05 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 05:41:05 Checking for update using Github
+2024-02-13 05:41:05 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 05:41:05 Checking for update using obsidian.md
+2024-02-13 05:41:05 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 06:41:05 Checking for update using Github
+2024-02-13 06:41:05 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 06:41:05 Checking for update using obsidian.md
+2024-02-13 06:41:05 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 07:41:05 Checking for update using Github
+2024-02-13 07:41:05 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 07:41:05 Checking for update using obsidian.md
+2024-02-13 07:41:05 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 08:41:05 Checking for update using Github
+2024-02-13 08:41:05 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 08:41:05 Checking for update using obsidian.md
+2024-02-13 08:41:05 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 09:41:05 Checking for update using Github
+2024-02-13 09:41:05 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 09:41:05 Checking for update using obsidian.md
+2024-02-13 09:41:05 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 10:41:05 Checking for update using Github
+2024-02-13 10:41:05 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
+2024-02-13 10:41:05 Checking for update using obsidian.md
+2024-02-13 10:41:05 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)

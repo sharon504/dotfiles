@@ -66,21 +66,13 @@ work(){
 
 git_(){
     git add .
-    if [ -n "$1" ]
-    then
-        git commit -m "$1"
-    else
-        git commit -m "update"
-    fi
+    git commit -m "$1"
+    git pull
 }
 git__(){
     git add .
-    if [ -n "$1" ]
-    then
-        git commit -m "$1"
-    else
-        git commit -m "update"
-    fi
+    git commit -m "$1"
+    git pull
     git push
 }
 

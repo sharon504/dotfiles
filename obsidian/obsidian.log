@@ -1194,3 +1194,11 @@
 2024-02-13 10:41:05 Failed to check for update using Github (net::ERR_INTERNET_DISCONNECTED)
 2024-02-13 10:41:05 Checking for update using obsidian.md
 2024-02-13 10:41:05 Failed to check for update using obsidian.md (net::ERR_INTERNET_DISCONNECTED)
+2024-03-01 04:21:54 Loading main app package /tmp/.mount_ObsidivEsj5Z/resources/obsidian.asar
+2024-03-01 04:21:55 Checking for update using Github
+2024-03-01 04:21:55 Success.
+2024-03-01 04:21:55 Latest version is 1.5.8
+2024-03-01 04:21:55 Downloading update from https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.8/obsidian-1.5.8.asar.gz
+2024-03-01 04:21:59 Verifying hash & signature. Size= 8652806
+2024-03-01 04:21:59 Saving file
+2024-03-01 04:22:00 Update complete.

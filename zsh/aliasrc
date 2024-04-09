@@ -42,6 +42,7 @@ alias tn='tmux new -s'
 alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias td='tmux detach'
+alias dev='npm run dev'
 
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias nvimrc='${=EDITOR} ~/.config/nvim/'

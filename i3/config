@@ -43,7 +43,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- $HOME/.config/scripts/loc
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id libinput-gestures-setup start
-# exec -no-startup-id sh $HOME/.config/polybar/launch.sh 
+exec -no-startup-id sh $HOME/.config/polybar/launch.sh --forest
 # exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh 
 
 # Set colors from Xresources
@@ -86,7 +86,7 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec kitty -o font_size=13
 bindsym $mod+Shift+h exec pkill polybar
-bindsym $mod+u exec $HOME/.config/polybar/launch.sh
+bindsym $mod+u exec $HOME/.config/polybar/launch.sh --forest
 
 
 # start browser
@@ -101,6 +101,8 @@ bindsym $mod+Shift+s exec LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify
 bindsym $mod+Shift+o exec $HOME/Obsidian.AppImage
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Print exec flameshot gui
+
+bindsym $mod+Shift+w exec sudo systemctl restart NetworkManager
 
 # lock screen
 bindsym $mod+Shift+x exec $HOME/.config/scripts/lock

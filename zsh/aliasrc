@@ -49,6 +49,7 @@ alias nvimrc='${=EDITOR} ~/.config/nvim/'
 alias iwmrc='${=EDITOR} ~/.config/i3/config'
 alias picomrc='${=EDITOR} ~/.config/picom/picom.conf'
 alias polyrc='${=EDITOR} ~/.config/polybar/config.ini'
+alias aliasrc='${=EDITOR} ~/zsh/aliasrc'
 alias poweroff='sudo poweroff'
 alias restart='sudo reboot'
 alias qt='exit'
@@ -62,6 +63,15 @@ work(){
         cd /home/alpha/WorkDir/"$1"
     else
         cd /home/alpha/WorkDir/
+    fi
+}
+
+conf(){
+    if [ -n "$1" ]
+    then
+        cd /home/alpha/.config/"$1"
+    else
+        cd /home/alpha/.config/
     fi
 }
 

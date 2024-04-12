@@ -12,12 +12,9 @@ fi
 # Not supported in the "fish" shell.
 
 # Alternative (blocks terminal for 0-3ms)
-cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
 # neofetch
-autoload -U colors && colors
 EDITOR=vim
 # History in cache directory:
 HISTSIZE=10000

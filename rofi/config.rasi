@@ -5,7 +5,6 @@
  * 
  * Configuration For Rofi Version: 1.7.3
  **/
-@import "~/.cache/wal/colors-rofi-dark"
 configuration {
 	/*---------- General setting ----------*/
 	modi: "drun,run,filebrowser,window";

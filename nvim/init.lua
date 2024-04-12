@@ -180,6 +180,7 @@ vim.keymap.set(
 	"<Cmd>ToggleTerm size=80 direction=vertical<CR>",
 	{ desc = "ToggleTerm vertical split" }
 )
+vim.keymap.set("i", "jj", "<Esc>", { desc = "Remaping jj to Esc" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -573,7 +574,8 @@ require("lazy").setup({
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
-				-- tsserver = {},
+				tsserver = {},
+				eslint = {},
 				--
 
 				lua_ls = {
@@ -650,6 +652,7 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				javascript = { "prettier" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -776,7 +779,7 @@ require("lazy").setup({
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight-night")
+			vim.cmd.colorscheme("eldritch")
 
 			-- You can configure highlights by doing something like:
 			vim.cmd.hi("Comment gui=none")

@@ -19,4 +19,12 @@ return {
 		opts = {--[[ things you want to change go here]]
 		},
 	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+		-- use opts = {} for passing setup options
+		-- this is equalent to setup({}) function
+	},
+	{ "eldritch-theme/eldritch.nvim" },
 }

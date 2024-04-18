@@ -27,4 +27,5 @@ return {
 		-- this is equalent to setup({}) function
 	},
 	{ "eldritch-theme/eldritch.nvim" },
+	{ "github/copilot.vim" },
 }

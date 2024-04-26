@@ -1,7 +1,0 @@
-2024/04/26-18:53:46.489 4a9 Reusing MANIFEST /home/alpha/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/04/26-18:53:46.490 4a9 Recovering log #3
-2024/04/26-18:53:46.500 4a9 Reusing old log /home/alpha/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/000003.log 
-2024/04/26-18:54:20.515 4a9 Level-0 table #5: started
-2024/04/26-18:54:20.541 4a9 Level-0 table #5: 2553709 bytes OK
-2024/04/26-18:54:20.550 4a9 Delete type=0 #3
-2024/04/26-18:54:20.552 4b2 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

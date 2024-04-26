@@ -1,4 +1,0 @@
-2024/04/26-21:38:20.980 4b2 Reusing MANIFEST /home/alpha/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_monkeytype.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/04/26-21:38:20.980 4b2 Recovering log #9
-2024/04/26-21:38:20.980 4b2 Reusing old log /home/alpha/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_monkeytype.com_0.indexeddb.leveldb/000009.log 
-2024/04/26-21:38:21.212 4b2 Manual compaction at level-0 from '\x00\x06\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x07\x00\x00\x00' @ 0 : 0; will stop at (end)

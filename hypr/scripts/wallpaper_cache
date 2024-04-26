@@ -1,0 +1,4 @@
+!#/usr/bin/bash
+
+rm -rf ~/.cache/current_wallpaper
+ln -s $(cat ~/.cache/swww/eDP-1) ~/.cache/current_wallpaper

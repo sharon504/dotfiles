@@ -13,14 +13,10 @@ set_wallpaper_xfce() {
 
 # Define the function for setting wallpapers in Hyprland
 set_wallpaper_hyprland() {
-	dir="/home/alpha/dotfiles/hypr/.wallpapers"
-	BG="$(find "$dir" -name '*.jpg' -o -name '*.png' | shuf -n1)"
 	PROGRAM="swww-daemon"
-	trans_type="simple"
-
 	# Check if the program is running
 	if pgrep "$PROGRAM" >/dev/null; then
-		swww img "$BG" --transition-fps 60 --transition-type $trans_type --transition-duration 1;wal -i $(cat ~/.cache/swww/eDP-1);bash ~/dotfiles/waybar/launch.sh;rm -rf ~/.cache/current_wallpaper;ln -s $(cat ~/.cache/swww/eDP-1) ~/.cache/current_wallpaper;echo $(cat ~/.cache/wal/colors-waybar.css) > ~/.cache/wal/colors-wlogout.css;
+		sh ./ch_wallpaper.sh
 	else
 		swww init && swww img "$BG" --transition-fps 60 --transition-type $trans_type --transition-duration 1
 	fi

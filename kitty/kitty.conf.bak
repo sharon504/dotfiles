@@ -1,8 +1,9 @@
 # BEGIN_KITTY_THEME
-# 1984 Light
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
 #
 # 0 disables it; -1 enables it
 confirm_os_window_close 0
 enable_audio_bell no
+font_family Source Code Pro

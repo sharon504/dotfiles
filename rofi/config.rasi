@@ -5,6 +5,7 @@
  * 
  * Configuration For Rofi Version: 1.7.3
  **/
+
 configuration {
 	/*---------- General setting ----------*/
 	modi: "drun,run,filebrowser,window";

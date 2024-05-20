@@ -49,7 +49,7 @@
     // Rofi Application Launcher
     "custom/appmenu": {
         "format": "󰣇 ",
-        "on-click": "~/dotfiles/scripts/applauncher.sh",
+        "on-click": "~/dotfiles/rofi/launchers/type-1/launcher.sh",
         "tooltip": false
     },
 

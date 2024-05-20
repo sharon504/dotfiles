@@ -161,6 +161,9 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
@@ -386,6 +389,7 @@ require("lazy").setup({
 
 			-- Enable Telescope extensions if they are installed
 			pcall(require("telescope").load_extension, "fzf")
+			pcall(require("telescope").load_extension, "ripgrep")
 			pcall(require("telescope").load_extension, "ui-select")
 
 			-- See `:help telescope.builtin`
@@ -569,17 +573,15 @@ require("lazy").setup({
 				-- clangd = {},
 				-- gopls = {},
 				-- pyright = {},
-				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
-				tsserver = {},
-				eslint = {},
-				--
-
+				biome = {},
+				rust_analyzer = {},
+				ruff_lsp = {},
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},
@@ -609,6 +611,11 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"ruff-lsp", -- Used for Python LSP
+				"rust_analyzer",
+				"biome", -- Used for JavaScript LSP
+				"ast-grep",
+				"ruff",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -654,13 +661,14 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				javascript = { "prettier" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
+				javascript = { "biome" },
+				python = { "ruff" },
+				javascriptreact = { "biome" },
+				typescript = { "biome" },
+				rust = { "ast-grep" },
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
 			},
 		},
 	},
@@ -837,7 +845,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc", "python" },
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
@@ -874,7 +882,7 @@ require("lazy").setup({
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
 	-- require 'kickstart.plugins.debug',
-	require("kickstart.plugins.indent_line"),
+	-- require("kickstart.plugins.indent_line"),
 	-- require 'kickstart.plugins.lint',
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`

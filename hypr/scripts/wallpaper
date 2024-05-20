@@ -16,7 +16,7 @@ set_wallpaper_hyprland() {
 	PROGRAM="swww-daemon"
 	# Check if the program is running
 	if pgrep "$PROGRAM" >/dev/null; then
-		sh ./ch_wallpaper.sh
+		sh ~/.config/hypr/scripts/ch_wallpaper.sh
 	else
 		swww init && swww img "$BG" --transition-fps 60 --transition-type $trans_type --transition-duration 1
 	fi

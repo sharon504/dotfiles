@@ -33,13 +33,13 @@
     // Modules Left
     "modules-left": [
         "custom/appmenu",
-        "hyprland/workspaces"
+    "clock",
+    "hyprland/window"
     ],
 
     // Modules Center
     "modules-center": [
-        "clock",
-        "hyprland/window"
+		"hyprland/workspaces"
     ],
 
     // Modules Right    
@@ -47,8 +47,8 @@
         "group/quicklinks",
         "group/hardware",
         "pulseaudio",
-        "bluetooth",
         "network",
+        "bluetooth",
         "battery" 
     ],
 

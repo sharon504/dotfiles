@@ -35,7 +35,8 @@ alias tn='tmux new -s'
 alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias td='tmux detach'
-alias dev='npm run dev'
+alias dev='direnv allow;npm run dev'
+alias da='direnv allow'
 
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias nvimrc='${=EDITOR} ~/.config/nvim/'
@@ -47,8 +48,8 @@ alias poweroff='sudo poweroff'
 alias restart='sudo reboot'
 alias qt='exit'
 alias pn='ping google.com -c4'
-alias update='sudo pacman -Syu'
-alias install_='sudo pacman -S'
+alias update='paru'
+alias ins='paru -S'
 
 work(){
     if [ -n "$1" ]

@@ -4,9 +4,6 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-if [ "$(tty)" = "/dev/tty1" ];then
-  exec Hyprland
-fi
 
 # Created by newuser for 5.9
 # Import colorscheme from 'wal' asynchronously
@@ -34,6 +31,7 @@ _comp_options+=(globdots)               # Include hidden files.
 
 # Custom ZSH Binds
 bindkey '^ ' autosuggest-accept
+bindkey '' backward-delete-word
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/zsh/aliasrc" ] && source "$HOME/.config/zsh/aliasrc"
@@ -74,9 +72,9 @@ _fzf_compgen_dir() {
   fd --type=d -H -E '.git' . "$1"
 }
 
-source ~/dotfiles/fzf-git.sh/fzf-git.sh
+source ~/git-modules/fzf-git.sh/fzf-git.sh
 
-export BAT_THEME=Monokai Extended Origin
+export BAT_THEME='Monokai Extended Origin'
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'exa --tree --color=always {} | head -200'"

@@ -49,9 +49,10 @@
     // Rofi Application Launcher
     "custom/appmenu": {
         "format": "󰣇 ",
-        "on-click": "~/dotfiles/rofi/launchers/type-1/launcher.sh",
+        "on-click": "~/dotfiles/rofi/launchers/type-1/launcher.sh/applauncher.sh",
         "tooltip": false
     },
+
 
     // Power Menu
     "custom/exit": {
@@ -116,15 +117,13 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}  {volume}%",
-        "format-bluetooth": "{volume}% {icon}  {format_source} ",
-        "format-bluetooth-muted": "  {icon}  {format_source} ",
         "format-muted": "  {format_source} ",
         "format-source": "{volume}%  ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
+            "hands-free": "󱡏  ",
+            "headset": "󱡏 ",
             "phone": " ",
             "portable": " ",
             "car": " ",
@@ -137,8 +136,8 @@
     "bluetooth": {
         "format": " ",
         "format-disabled": "",
-        "format-off": "",
-        "interval": 30,
+        "format-off": "󰂲 ",
+      "format-connected-battery": "󰥉 {device_battery_percentage}%",  "interval": 30,
         "on-click": "blueman-manager"
     },
 

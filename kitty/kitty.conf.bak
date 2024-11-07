@@ -1,5 +1,5 @@
 # BEGIN_KITTY_THEME
-# Tokyo Night
+# 1984 Light
 include current-theme.conf
 # END_KITTY_THEME
 #
@@ -7,3 +7,5 @@ include current-theme.conf
 confirm_os_window_close 0
 enable_audio_bell no
 font_family Source Code Pro
+map ctrl+backspace send_text all \x17
+cursor_shape beam

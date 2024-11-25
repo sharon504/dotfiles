@@ -24,6 +24,14 @@ ex ()
   fi
 }
 
+nixssh() {
+  if test $1 = "--ssh"; then
+      ssh -i ~/.ssh/alpha_virtio alpha@192.168.122.238
+  elif test $1 = "--full"; then
+    sudo virsh start nixos; sleep 20; ssh -i ~/.ssh/alpha_virtio alpha@192.168.122.238
+  fi
+}
+
 alias cd="z"
 export EDITOR=nvim
 

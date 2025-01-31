@@ -10,6 +10,8 @@ fi
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
 # Not supported in the "fish" shell.
+# Disable pywal for Kitty
+export WAL_SKIP="kitty"
 
 # Alternative (blocks terminal for 0-3ms)
 

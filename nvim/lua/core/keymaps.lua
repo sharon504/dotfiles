@@ -37,4 +37,13 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set("n", "<leader>ee", ":lua MiniFiles.open()<CR>", { desc = "Open MiniFiles" })
 
+vim.keymap.set("n", "<leader>ld", "<CMD>LazyDocker<CR>", { desc = "Open LazyDocker" })
+
+-- Copilot chat
+vim.keymap.set({ "n" }, "<leader>aa", ":lua require('CopilotChat').toggle()<CR>", { desc = "AI Toggle" })
+vim.keymap.set({ "v" }, "<leader>aa", ":lua require('CopilotChat').open()<CR>", { desc = "AI Open" })
+vim.keymap.set({ "n" }, "<leader>ax", ":lua require('CopilotChat').reset()<CR>", { desc = "AI Reset" })
+vim.keymap.set({ "n" }, "<leader>as", ":lua require('CopilotChat').stop()<CR>", { desc = "AI Stop" })
+vim.keymap.set({ "n" }, "<leader>am", ":lua require('CopilotChat').select_model()<CR>", { desc = "AI Model" })

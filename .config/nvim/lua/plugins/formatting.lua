@@ -6,7 +6,7 @@ return {
 		
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "biome" },
+				javascript = { "biome", "prettier" },
 				typescript = { "biome" },
 				javascriptreact = { "biome" },
 				typescriptreact = { "biome" },

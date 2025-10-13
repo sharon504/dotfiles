@@ -52,7 +52,7 @@ return {
 		-- configure lualine with modified theme
 		lualine.setup({
 			options = {
-				theme = "pywal-nvim",
+				theme = "cyberdream",
 			},
 			sections = {
 				lualine_x = {

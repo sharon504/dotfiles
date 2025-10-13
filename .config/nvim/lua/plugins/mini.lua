@@ -11,11 +11,11 @@ return {
 					i = "@function.inner",
 				}),
 				-- Add more custom ones if needed, e.g., for classes or blocks
-				c = mini.ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
+				-- c = mini.ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
 			},
 		})
 		require("mini.bracketed").setup()
-		-- require("mini.comment").setup()
+		require("mini.comment").setup()
 		require("mini.git").setup()
 		require("mini.surround").setup()
 		require("mini.pairs").setup()

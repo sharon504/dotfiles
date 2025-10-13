@@ -53,13 +53,17 @@ return {
 		-- Language server configuration
 		local servers = {
 			-- Web development
-			-- "eslint",
+			"eslint",
+			"ts_ls",
+
+			-- Rust development
+			"rust_analyzer",
 
 			-- Lua development
-			-- "lua_ls",
+			"lua_ls",
 
 			-- Python development
-			-- "pyright",
+			"pyright",
 
 			-- C/C++ development
 			-- "clangd",
@@ -71,7 +75,7 @@ return {
 			"prettier", -- formatter for web languages
 
 			-- Lua
-			-- "stylua", -- lua formatter
+			"stylua", -- lua formatter
 
 			-- Python
 			"isort", -- python formatter

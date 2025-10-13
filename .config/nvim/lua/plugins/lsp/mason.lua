@@ -38,17 +38,7 @@ return {
 
 		-- import mason-lspconfig
 		local mason_lspconfig = require("mason-lspconfig")
-
-		-- import nvim-lspconfig
-		local lspconfig = require("lspconfig")
-
 		local mason_tool_installer = require("mason-tool-installer")
-
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		local has_cmp, cmp = pcall(require, "cmp_nvim_lsp")
-		if has_cmp then
-			capabilities = cmp.default_capabilities()
-		end
 
 		-- Language server configuration
 		local servers = {
@@ -135,32 +125,7 @@ return {
 			ensure_installed = servers,
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true,
-			automatic_enable = true,
 		})
-
-		-- Get all installed servers
-		local installed_servers = mason_lspconfig.get_installed_servers()
-
-		-- Set up each installed server
-		for _, server_name in ipairs(installed_servers) do
-			local opts = {
-				capabilities = capabilities,
-				on_attach = function(client)
-					-- You can add custom on_attach logic here
-					-- For example, disable formatting for certain clients
-					if client.name == "tsserver" then
-						client.server_capabilities.documentFormattingProvider = false
-					end
-				end,
-			}
-
-			-- Add server-specific options if they exist
-			if server_configs[server_name] then
-				opts = vim.tbl_deep_extend("force", opts, server_configs[server_name])
-			end
-
-			lspconfig[server_name].setup(opts)
-		end
 
 		mason_tool_installer.setup({
 			ensure_installed = tools,
@@ -168,6 +133,9 @@ return {
 			run_on_start = true,
 			start_delay = 3000, -- 3 seconds delay
 		})
+
+		-- NOTE: The incorrect LSP setup loop has been removed.
+		-- LSP setup is now correctly handled by `lua/plugins/lsp/lspconfig.lua`.
 
 		-- Register a handler that will set up formatters for specific filetypes
 		-- This can be expanded with formatting and linting configuration
@@ -191,14 +159,6 @@ return {
 				vim.keymap.set("n", "<leader>cs", function()
 					vim.cmd("! cppcheck --enable=all --suppressions-list=.cppcheck_suppressions %")
 				end, { buffer = true, desc = "Static analysis with cppcheck" })
-
-				-- Option: format on save (uncomment to enable)
-				-- vim.api.nvim_create_autocmd("BufWritePre", {
-				-- 	buffer = 0,
-				-- 	callback = function()
-				-- 		vim.cmd("normal gggqG")
-				-- 	end,
-				-- })
 			end,
 		})
 

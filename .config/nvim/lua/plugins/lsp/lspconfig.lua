@@ -5,7 +5,6 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "williamboman/mason.nvim", config = true },
 		{ "williamboman/mason-lspconfig.nvim" },
-		-- { "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -14,9 +13,6 @@ return {
 		-- import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
 
-		-- import cmp-nvim-lsp plugin
-
-		-- Set up diagnostic symbols
 		-- Set up diagnostic symbols and config
 		local function setup_diagnostic_signs()
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -31,7 +27,7 @@ return {
 				update_in_insert = false,
 				underline = true,
 				severity_sort = true,
-				virtual_text = true, -- Disable virtual text as we're showing signs in gutter
+				virtual_text = true,
 			})
 		end
 
@@ -99,108 +95,53 @@ return {
 		-- Get capabilities from cmp
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		-- Server-specific configurations
-		local server_configs = {
-			graphql = {
-				filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-			},
-			emmet_ls = {
-				filetypes = {
-					"html",
-					"typescriptreact",
-					"javascriptreact",
-					"css",
-					"sass",
-					"scss",
-					"less",
-					"svelte",
-				},
-			},
-			eslint = {
-				filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
-				settings = {
-					eslint = {
-						validate = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
-						run = "onType",
-					},
-				},
-			},
-			clangd = {
-				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-			},
+		-- Server-specific configurations to be passed to lspconfig
+		local servers = {
+			-- These will be passed to lspconfig's setup function
 			lua_ls = {
 				settings = {
 					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-						completion = {
-							callSnippet = "Replace",
-						},
+						diagnostics = { globals = { "vim" } },
+						completion = { callSnippet = "Replace" },
 					},
 				},
 			},
-			-- Add Biome configuration here
 			biome = {
 				root_dir = require("lspconfig.util").root_pattern("biome.json", ".git"),
-				single_file_support = false,
 			},
+			-- Add other servers here if you want to override their default settings
+			-- Otherwise, mason will install them and they will be set up with defaults
+			eslint = {},
+			ts_ls = {},
+			rust_analyzer = {},
+			pyright = {},
+			clangd = {},
+			graphql = {},
+			emmet_ls = {},
 		}
 
 		-- Make sure Mason is set up before mason-lspconfig
 		require("mason").setup()
+
+		-- Configure mason-lspconfig to automatically install and manage LSPs
 		mason_lspconfig.setup({
-			-- Only include actual LSP servers
-			ensure_installed = {}, -- Add your LSP servers here if needed
-		})
-
-		-- Get all installed servers and filter out non-LSP tools
-		local installed_servers = mason_lspconfig.get_installed_servers()
-		
-		-- Explicitly define which tools are NOT LSP servers
-		local non_lsp_tools = { 
-			"stylua", "biome", "prettier", "eslint_d", "black", "isort", 
-			"clang-format", "cpplint", "pylint" 
-		}
-		local lsp_servers = {}
-		
-		for _, server in ipairs(installed_servers) do
-			if not vim.tbl_contains(non_lsp_tools, server) then
-				table.insert(lsp_servers, server)
-			end
-		end
-
-		-- Set up each LSP server (excluding formatters)
-		for _, server_name in ipairs(lsp_servers) do
-			local config = {
-				capabilities = capabilities,
-			}
-
-			-- Merge with server-specific config if available
-			if server_configs[server_name] then
-				for k, v in pairs(server_configs[server_name]) do
-					config[k] = v
-				end
-			end
-
-			lspconfig[server_name].setup(config)
-		end
-
-		-- Set up Biome LSP explicitly since we removed it from Mason loop
-		lspconfig.biome.setup({
-			-- Use generic biome command - it will find Mason's installation automatically
-			capabilities = capabilities,
-			root_dir = function(fname)
-				return require("lspconfig.util").root_pattern("biome.json", ".git")(fname)
-			end,
-			single_file_support = false,
-			filetypes = {
-				"javascript",
-				"javascriptreact", 
-				"typescript",
-				"typescriptreact",
-				"json",
-				"jsonc"
+			ensure_installed = vim.tbl_keys(servers), -- ensures servers in the table above are installed
+			handlers = {
+				-- The first entry (without a key) will be the default handler.
+				-- This will be called for each server that is installed.
+				function(server_name)
+					local opts = {
+						capabilities = capabilities,
+					}
+					-- Get the server-specific settings from our `servers` table
+					local server_config = servers[server_name]
+					if server_config then
+						-- Extend the default opts with the server-specific settings
+						opts = vim.tbl_deep_extend("force", opts, server_config)
+					end
+					-- Finally, set up the server with lspconfig
+					lspconfig[server_name].setup(opts)
+				end,
 			},
 		})
 	end,

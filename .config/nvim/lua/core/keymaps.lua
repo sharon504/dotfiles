@@ -105,3 +105,5 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>ng", function()
 	require("neogit").open()
 end, { desc = "Open neogit" })
+
+vim.keymap.set("n", "<leader>p", ":Telescope projects<CR>", { desc = "Open project" })

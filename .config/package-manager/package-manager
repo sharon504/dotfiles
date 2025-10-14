@@ -3,7 +3,6 @@
 # A script to interactively install or remove packages using paru, fzf, and gum.
 
 # Shows a "Done!" message and waits for a keypress.
-# [cite_start]Based on the original omarchy-show-done script. [cite: 7]
 show_done() {
   echo
   gum spin --spinner "globe" --title "Done! Press any key to close..." -- bash -c 'read -n 1 -s'
@@ -12,7 +11,7 @@ show_done() {
 # --- INSTALL FUNCTION ---
 # Interactively installs packages, sorted by package name.
 run_install() {
-  # [cite_start]fzf arguments for the installer interface, adapted from omarchy-pkg-aur-install. [cite: 4]
+  # fzf arguments for the installer interface, adapted from omarchy-pkg-aur-install. 
   local fzf_args=(
     --multi
     --preview 'paru -Siia $(echo {} | sed "s#.*/##")'
@@ -32,15 +31,12 @@ run_install() {
   local selected_pkgs
   selected_pkgs=$((pacman -Sl | awk '!/\[installed\]/ {print $1 "/" $2}'; paru -Sla | awk '{print "aur/" $2}') | sort -t'/' -k2 | fzf "${fzf_args[@]}")
 
-  # [cite_start]
-  if [[ -n "$selected_pkgs" ]]; then [cite: 5]
+  if [[ -n "$selected_pkgs" ]]; then 
     # Strip the "repo/" prefix from the selected packages.
     local pkg_names
     pkg_names=$(echo "$selected_pkgs" | sed 's/.*\///')
     
-    # [cite_start]Convert newline-separated selections to space-separated for paru. [cite: 5]
-    #[cite_start]
-    echo "$pkg_names" | tr '\n' ' ' | xargs paru -S --noconfirm [cite: 6]
+    echo "$pkg_names" | tr '\n' ' ' | xargs paru -S --noconfirm 
     sudo updatedb
     show_done
   fi
@@ -49,7 +45,6 @@ run_install() {
 # --- REMOVE FUNCTION ---
 # Interactively removes explicitly installed packages.
 run_remove() {
-  # [cite_start]fzf arguments for the removal interface, adapted from omarchy-pkg-remove. [cite: 1]
   local fzf_args=(
     --multi
     --preview 'paru -Qi {1}'
@@ -67,9 +62,7 @@ run_remove() {
   pkg_names=$(yay -Qqe | fzf "${fzf_args[@]}")
 
   if [[ -n "$pkg_names" ]]; then
-    # [cite_start]Convert newline-separated selections to space-separated for pacman. [cite: 2]
-    [cite_start]
-    echo "$pkg_names" | tr '\n' ' ' | xargs sudo pacman -Rns --noconfirm [cite: 3]
+    echo "$pkg_names" | tr '\n' ' ' | xargs sudo pacman -Rns --noconfirm 
     show_done
   fi
 }

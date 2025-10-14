@@ -41,6 +41,9 @@ alias ll='ls -l'
 # ls, the common ones I use a lot shortened for rapid fire usage
 alias l='ls -lFh'     #size,show type,human readable
 alias tn='tmux new -s'
+alias txs='tmuxinator start'
+alias txp='tmuxinator stop'
+alias txn='tmuxinator new'
 alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias td='tmux detach'

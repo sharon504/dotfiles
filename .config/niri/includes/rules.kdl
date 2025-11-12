@@ -1,0 +1,20 @@
+// --- Application-Specific Rules ---
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"# // Rule for Wezterm
+    default-column-width {} // Reset column width for Wezterm
+}
+
+window-rule {
+  match app-id="floating" // Rule for any app launched with "floating" class
+  open-floating true // Make it float
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$" // Rule for Firefox Picture-in-Picture
+    open-floating true // Make PiP windows float
+}
+
+layer-rule {
+  match namespace="^swww-daemon$" // Layer rule for the wallpaper daemon
+}

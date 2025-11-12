@@ -1,0 +1,8 @@
+// --- Monitor / Output Settings ---
+
+output "eDP-1" { // Settings for the built-in laptop display
+    mode "1920x1080@60.020"
+    scale 0.95 // Apply 95% fractional scaling
+    transform "normal"
+    position x=1280 y=0 // Position display (implies multi-monitor setup)
+}

@@ -10,14 +10,14 @@
 //
 {
   // Workspaces
-  "hyprland/workspaces": {
+  "niri/workspaces": {
     "disable-scroll": true,
     "sort-by-name": true,
     "format": "{name}"
   },
 
   // Hyprland Window
-  "hyprland/window": {
+  "niri/window": {
     "rewrite": {
       "(.*) - Brave": "$1",
       "(.*) - Chromium": "$1",
@@ -65,21 +65,21 @@
 
   // CPU
   "cpu": {
-    "format": "   {usage}% "
+    "format": " {usage}% "
   },
 
   // Memory
   "memory": {
-    "format": "   {}% "
+    "format": " {}% "
   },
 
   // Network
   "network": {
     "format": "{ifname}",
-    "format-wifi": "   {essid} ({signalStrength}%)",
-    "format-ethernet": "  {ipaddr}",
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ipaddr}",
     "format-disconnected": "  ", //An empty format will hide the module.
-    "tooltip-format": "  {ifname} via {gwaddri}",
+    "tooltip-format": " {ifname} via {gwaddri}",
     "tooltip-format-wifi": "  {ipaddr}",
     "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
     "tooltip-format-disconnected": "Disconnected",
@@ -94,10 +94,10 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}   {capacity}%",
-    "format-charging": "  {capacity}%",
-    "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time}",
+    "format": "{icon}{capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": [" ", " ", " ", " ", " "]
@@ -105,11 +105,11 @@
 
   // Pulseaudio
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{icon}  {volume}%",
-    "format-muted": "  {format_source} ",
-    "format-source": "{volume}%  ",
-    "format-source-muted": "",
+    "scroll-step": 1, // %, can be a float
+    "format": "{icon}{volume}%",
+    "format-muted": " {format_source} ",
+    "format-source": "{volume}% ",
+    "format-source-muted": " ",
     "format-icons": {
       "headphone": " ",
       "hands-free": "󱡏  ",
@@ -120,6 +120,12 @@
       "default": ["", " ", " "]
     },
     "on-click": "pavucontrol"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}{percent}%",
+    "format-icons": ["󰃞 ", "󰃟 ", "󰃝 ", "󰃠 "],
   },
 
   // Bluetooth

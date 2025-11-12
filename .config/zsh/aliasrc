@@ -50,6 +50,8 @@ alias td='tmux detach'
 alias dev='direnv allow;npm run dev'
 alias da='direnv allow'
 
+alias ssh_rpl='ssh -i /home/alpha/WorkDir/RPL/id_ed25519 erpadmin@14.139.171.170'
+
 DOTFILES_DIR='~/dotfiles/modules/home-manager'
 
 alias zshrc='${=EDITOR} $DOTFILES_DIR/zsh' # Quick access to the ~/.zshrc file

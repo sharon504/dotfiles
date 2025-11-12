@@ -21,21 +21,21 @@
     "margin-bottom": 0,
     
     "layer": "top",
-    "height": 16,
+    "height": 30,
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
     // Load Modules
     "include": ["~/.config/waybar/modules.json"],
+    // "custom/appmenu",
     // Modules Left
     "modules-left": [
-        "custom/appmenu",
-        "hyprland/window"
+        "niri/window"
     ],
     // Modules Center
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
+    // "modules-center": [
+    //    "niri/workspaces"
+    //],
     // Modules Right    
     "modules-right": [
         "group/quicklinks",
@@ -43,6 +43,7 @@
         "network",
         "bluetooth",
         "pulseaudio",
+        "backlight",
         "battery",
         "clock"
     ],

@@ -107,3 +107,17 @@ vim.keymap.set("n", "<leader>ng", function()
 end, { desc = "Open neogit" })
 
 vim.keymap.set("n", "<leader>p", ":Telescope projects<CR>", { desc = "Open project" })
+
+vim.keymap.set(
+	"n",
+	"<leader>wt",
+	"<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
+	{ desc = "Show all git worktrees" }
+)
+
+vim.keymap.set(
+	"n",
+	"<leader>wn",
+	"<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()()<CR>",
+	{ desc = "Create new git worktrees" }
+)

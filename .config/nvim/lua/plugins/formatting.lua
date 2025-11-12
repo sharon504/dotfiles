@@ -2,12 +2,12 @@ return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		local conform = require('conform')
-		
+		local conform = require("conform")
+
 		conform.setup({
 			formatters_by_ft = {
 				javascript = { "biome", "prettier" },
-				typescript = { "biome" },
+				typescript = { "biome", "prettier" },
 				javascriptreact = { "biome" },
 				typescriptreact = { "biome" },
 				lua = { "stylua" },
@@ -27,7 +27,7 @@ return {
 				-- lsp_fallback = true,
 			},
 		})
-		
+
 		-- Format keybinding
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({

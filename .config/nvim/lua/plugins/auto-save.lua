@@ -100,7 +100,7 @@ return {
 				-- I make a change, and a SQL query executed
 				-- Run `:set filetype?` on a dadbod query to make sure of the filetype
 				local filetype = vim.bo[buf].filetype
-				if filetype == "harpoon" or filetype == "mysql" then
+				if filetype == "harpoon" or filetype == "mysql" or filetype == "org" then
 					return false
 				end
 

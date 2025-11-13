@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# A script to interactively install or remove packages using paru, fzf, and gum.
+
+# Shows a "Done!" message and waits for a keypress.
+show_done() {
+  echo
+  gum spin --spinner "globe" --title "Done! Press any key to close..." -- bash -c 'read -n 1 -s'
+}
+
+# --- INSTALL FUNCTION ---
+# Interactively installs packages, sorted by package name.
+run_install() {
+  # fzf arguments for the installer interface, adapted from omarchy-pkg-aur-install. 
+  local fzf_args=(
+    --multi
+    --preview 'paru -Siia $(echo {} | sed "s#.*/##")'
+    --preview-label='alt-p: toggle description, alt-b/B: toggle PKGBuild, alt-j/k: scroll, tab: multi-select, F11: maximize'
+    --preview-label-pos='bottom'
+    --preview-window 'down:65%:wrap'
+    --bind 'alt-p:toggle-preview'
+    --bind 'alt-d:preview-half-page-down,alt-u:preview-half-page-up'
+    --bind 'alt-k:preview-up,alt-j:preview-down'
+    --bind 'alt-b:change-preview:paru -Gpa $(echo {} | sed "s#.*/##") | tail -n +5'
+    --bind 'alt-B:change-preview:paru -Siia $(echo {} | sed "s#.*/##")'
+    --color 'pointer:green,marker:green'
+  )
+
+  # Get a combined list of packages from all repos and the AUR.
+  # Then, pipe to sort to group packages by name, regardless of source repo.
+  local selected_pkgs
+  selected_pkgs=$((pacman -Sl | awk '!/\[installed\]/ {print $1 "/" $2}'; paru -Sla | awk '{print "aur/" $2}') | sort -t'/' -k2 | fzf "${fzf_args[@]}")
+
+  if [[ -n "$selected_pkgs" ]]; then 
+    # Strip the "repo/" prefix from the selected packages.
+    local pkg_names
+    pkg_names=$(echo "$selected_pkgs" | sed 's/.*\///')
+    
+    echo "$pkg_names" | tr '\n' ' ' | xargs paru -S --noconfirm 
+    sudo updatedb
+    show_done
+  fi
+}
+
+# --- REMOVE FUNCTION ---
+# Interactively removes explicitly installed packages.
+run_remove() {
+  local fzf_args=(
+    --multi
+    --preview 'paru -Qi {1}'
+    --preview-label='alt-p: toggle description, alt-j/k: scroll, tab: multi-select, F11: maximize'
+    --preview-label-pos='bottom'
+    --preview-window 'down:65%:wrap'
+    --bind 'alt-p:toggle-preview'
+    --bind 'alt-d:preview-half-page-down,alt-u:preview-half-page-up'
+    --bind 'alt-k:preview-up,alt-j:preview-down'
+    --color 'pointer:red,marker:red'
+  )
+
+  # Get a list of all explicitly installed packages.
+  local pkg_names
+  pkg_names=$(yay -Qqe | fzf "${fzf_args[@]}")
+
+  if [[ -n "$pkg_names" ]]; then
+    echo "$pkg_names" | tr '\n' ' ' | xargs sudo pacman -Rns --noconfirm 
+    show_done
+  fi
+}
+
+# --- MAIN LOGIC ---
+# Determine which function to run based on the first argument.
+case "$1" in
+  install)
+    run_install
+    ;;
+  remove)
+    run_remove
+    ;;
+  *)
+    echo "Usage: $(basename "$0") {install|remove}"
+    exit 1
+    ;;
+esac

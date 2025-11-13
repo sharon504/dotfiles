@@ -1,0 +1,40 @@
+// --- Visual Theme & Layout Settings ---
+
+layout {
+    gaps 1 // Small 1px gap between windows
+    center-focused-column "never"
+    preset-column-widths { // Widths to cycle through with Mod+R
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring { // Settings for the ring around the active window
+        width 1
+        active-color "#ffffff"
+        inactive-color "#000000"
+        active-gradient from="#ffffff" to="#000000" angle=180
+    }
+
+    border {
+        off // Disable window borders by default
+        width 1
+        urgent-color "#9b0000"
+        active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+       
+ inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+
+    shadow { // Window drop shadow settings
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    struts {} // Settings for panels that reserve space (like waybar)
+}
+
+animations {} // Enable default animations

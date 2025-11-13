@@ -1,0 +1,21 @@
+// --- Input Device Settings ---
+
+input {
+    keyboard {
+        xkb {
+            layout "us,ru" // Set keyboard layouts (US, Russian)
+        }
+    }
+
+    touchpad {
+        tap // Enable tap-to-click
+        natural-scroll // Enable natural (reverse) scrolling
+    }
+
+    mouse { }
+
+    trackpoint { }
+
+    warp-mouse-to-focus // Move cursor to the newly focused window
+    focus-follows-mouse // Focus window on hover (replaces click-to-focus)
+}

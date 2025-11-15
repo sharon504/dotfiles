@@ -15,6 +15,19 @@ window-rule {
     open-floating true // Make PiP windows float
 }
 
+window-rule {
+    match app-id=r#"zen$"# // Rule for Zen to open on workspace 1
+    open-on-workspace "c"
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"kitty$"# // Rule for Zen to open on workspace 1
+    open-on-workspace "b"
+    open-maximized true
+}
+
+
 layer-rule {
   match namespace="^swww-daemon$" // Layer rule for the wallpaper daemon
 }

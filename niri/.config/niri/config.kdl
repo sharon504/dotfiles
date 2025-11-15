@@ -23,6 +23,11 @@ prefer-no-csd // Prefer server-side decorations (niri's borders) over client-sid
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png" // Set default path and filename format for screenshots
 
+workspace "c" {}
+workspace "b" {}
+workspace "a" {}
+
+
 gestures {
     hot-corners {
         off // Disable hot corners

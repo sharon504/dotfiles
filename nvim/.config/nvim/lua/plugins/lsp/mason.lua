@@ -57,6 +57,7 @@ return {
 
 			-- C/C++ development
 			-- "clangd",
+			"ast-grep",
 		}
 
 		-- Formatters and linters configuration
@@ -134,13 +135,10 @@ return {
 			start_delay = 3000, -- 3 seconds delay
 		})
 
-		-- NOTE: The incorrect LSP setup loop has been removed.
-		-- LSP setup is now correctly handled by `lua/plugins/lsp/lspconfig.lua`.
-
 		-- Register a handler that will set up formatters for specific filetypes
 		-- This can be expanded with formatting and linting configuration
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "c", "cpp" },
+			pattern = { "c", "cpp", "java" },
 			callback = function()
 				-- Set up formatprg for C/C++ files to use clang-format
 				vim.bo.formatprg = "clang-format --assume-filename=% --style=file"

@@ -12,6 +12,7 @@ return {
 				typescriptreact = { "biome" },
 				lua = { "stylua" },
 				python = { "black", "isort" },
+				java = { "google-java-format", "ast-grep", "clang-format" },
 			},
 			formatters = {
 				biome = {

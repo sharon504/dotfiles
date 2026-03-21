@@ -19,3 +19,6 @@
 [submodule "kanata"]
 	path = kanata
 	url = https://github.com/sharon504/kanata-config.git
+[submodule "kitty"]
+	path = kitty
+	url = https://github.com/sharon504/kitty-config.git

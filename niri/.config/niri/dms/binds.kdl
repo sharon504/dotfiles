@@ -1,0 +1,210 @@
+binds {
+    // === System & Overview ===
+    // Mod+D repeat=false { toggle-overview; }  // Conflict: user uses Mod+O for toggle-overview
+    // Mod+Tab repeat=false { toggle-overview; }  // Conflict: user uses Mod+Tab for focus-workspace-previous
+    // Mod+Shift+Slash { show-hotkey-overlay; }  // Conflict: user has same binding
+
+    // === Application Launchers ===
+    Mod+T hotkey-overlay-title="Open Terminal" { spawn "kitty"; }  // No conflict (user uses Mod+Return)
+    // Mod+Space hotkey-overlay-title="Application Launcher" {  // Conflict: user uses Mod+Space for rofi
+    //     spawn "dms" "ipc" "call" "spotlight" "toggle";
+    // }
+    Mod+Q hotkey-overlay-title="Clipboard Manager" {  // Conflict: user uses Mod+V for toggle-window-floating
+        spawn "dms" "ipc" "call" "clipboard" "toggle";
+    }
+    Mod+M hotkey-overlay-title="Task Manager" {
+        spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
+    }
+
+    Super+X hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+    Mod+Comma hotkey-overlay-title="Settings" {
+        spawn "dms" "ipc" "call" "settings" "focusOrToggle";
+    }
+    Mod+Y hotkey-overlay-title="Browse Wallpapers" {
+        spawn "dms" "ipc" "call" "dankdash" "wallpaper";
+    }
+    Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+
+    // === Security ===
+    // Mod+Alt+L hotkey-overlay-title="Lock Screen" {  // Conflict: user uses Mod+Alt+L for hyprlock
+    //     spawn "dms" "ipc" "call" "lock" "lock";
+    // }
+    // Mod+Shift+E { quit; }  // Conflict: user has same binding
+    // Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" {  // Conflict: user uses Ctrl+Alt+Delete for quit
+    //     spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
+    // }
+
+    // === Audio Controls ===
+    // XF86AudioRaiseVolume allow-when-locked=true {  // Conflict: user uses wpctl
+    //     spawn "dms" "ipc" "call" "audio" "increment" "3";
+    // }
+    // XF86AudioLowerVolume allow-when-locked=true {  // Conflict: user uses wpctl
+    //     spawn "dms" "ipc" "call" "audio" "decrement" "3";
+    // }
+    // XF86AudioMute allow-when-locked=true {  // Conflict: user uses wpctl
+    //     spawn "dms" "ipc" "call" "audio" "mute";
+    // }
+    // XF86AudioMicMute allow-when-locked=true {  // Conflict: user uses wpctl
+    //     spawn "dms" "ipc" "call" "audio" "micmute";
+    // }
+    // XF86AudioPause allow-when-locked=true {  // Conflict: user uses playerctl
+    //     spawn "dms" "ipc" "call" "mpris" "playPause";
+    // }
+    // XF86AudioPlay allow-when-locked=true {  // Conflict: user uses playerctl
+    //     spawn "dms" "ipc" "call" "mpris" "playPause";
+    // }
+    // XF86AudioPrev allow-when-locked=true {  // Conflict: user uses playerctl
+    //     spawn "dms" "ipc" "call" "mpris" "previous";
+    // }
+    // XF86AudioNext allow-when-locked=true {  // Conflict: user uses playerctl
+    //     spawn "dms" "ipc" "call" "mpris" "next";
+    // }
+
+    // === Brightness Controls ===
+    // XF86MonBrightnessUp allow-when-locked=true {  // Conflict: user uses brightnessctl
+    //    spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+    // }
+    // XF86MonBrightnessDown allow-when-locked=true {  // Conflict: user uses brightnessctl
+    //    spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+    // }
+
+    // === Window Management ===
+    // Mod+Q repeat=false { close-window; }  // Conflict: user uses Mod+Q for toggle-column-tabbed-display
+    // Mod+F { maximize-column; }  // Conflict: user has same binding
+    // Mod+Shift+F { fullscreen-window; }  // Conflict: user has same binding
+    // Mod+Shift+T { toggle-window-floating; }  // No direct conflict but user uses Mod+V for this
+    // Mod+Shift+V { switch-focus-between-floating-and-tiling; }  // Conflict: user has same binding
+    // Mod+W { toggle-column-tabbed-display; }  // Conflict: user uses Mod+W for close-window
+
+    // === Focus Navigation ===
+    // Mod+Left  { focus-column-left; }  // Conflict: user uses Mod+Left for playerctl previous
+    // Mod+Down  { focus-window-down; }  // Conflict: user uses Mod+Down for volume down
+    // Mod+Up    { focus-window-up; }  // Conflict: user uses Mod+Up for volume up
+    // Mod+Right { focus-column-right; }  // Conflict: user uses Mod+Right for playerctl next
+    // Mod+H     { focus-column-left; }  // Conflict: user has same binding
+    // Mod+J     { focus-window-down; }  // Conflict: user uses focus-window-or-workspace-down
+    // Mod+K     { focus-window-up; }  // Conflict: user uses focus-window-or-workspace-up
+    // Mod+L     { focus-column-right; }  // Conflict: user has same binding
+
+    // === Window Movement ===
+    // Mod+Shift+Left  { move-column-left; }  // No direct conflict
+    // Mod+Shift+Down  { move-window-down; }  // No direct conflict
+    // Mod+Shift+Up    { move-window-up; }  // No direct conflict
+    // Mod+Shift+Right { move-column-right; }  // No direct conflict
+    // Mod+Shift+H     { move-column-left; }  // Conflict: user has same binding
+    // Mod+Shift+J     { move-window-down; }  // Conflict: user has same binding
+    // Mod+Shift+K     { move-window-up; }  // Conflict: user has same binding
+    // Mod+Shift+L     { move-column-right; }  // Conflict: user has same binding
+
+    // === Column Navigation ===
+    // Mod+Home { focus-column-first; }  // Conflict: user has same binding
+    // Mod+End  { focus-column-last; }  // Conflict: user has same binding
+    // Mod+Ctrl+Home { move-column-to-first; }  // Conflict: user has same binding
+    // Mod+Ctrl+End  { move-column-to-last; }  // Conflict: user has same binding
+
+    // === Monitor Navigation ===
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    //Mod+Ctrl+Down  { focus-monitor-down; }
+    //Mod+Ctrl+Up    { focus-monitor-up; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+L     { focus-monitor-right; }
+
+    // === Move to Monitor ===
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    // === Workspace Navigation ===
+    // Mod+Page_Down      { focus-workspace-down; }  // Conflict: user has same binding
+    // Mod+Page_Up        { focus-workspace-up; }  // Conflict: user has same binding
+    // Mod+U              { focus-workspace-down; }  // Conflict: user has same binding
+    // Mod+I              { focus-workspace-up; }  // Conflict: user has same binding
+    // Mod+Ctrl+Down { move-column-to-workspace-down; }  // No direct conflict
+    // Mod+Ctrl+Up   { move-column-to-workspace-up; }  // No direct conflict
+    // Mod+Ctrl+U         { move-column-to-workspace-down; }  // Conflict: user has same binding
+    // Mod+Ctrl+I         { move-column-to-workspace-up; }  // Conflict: user has same binding
+
+    // === Move Workspaces ===
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    Mod+Shift+U         { move-workspace-down; }
+    Mod+Shift+I         { move-workspace-up; }
+
+    // === Mouse Wheel Navigation ===
+    // Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }  // Conflict: user has same binding
+    // Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }  // Conflict: user has same binding
+    // Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }  // Conflict: user has same binding
+    // Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }  // Conflict: user has same binding
+
+    // Mod+WheelScrollRight      { focus-column-right; }  // Conflict: user has same binding
+    // Mod+WheelScrollLeft       { focus-column-left; }  // Conflict: user has same binding
+    // Mod+Ctrl+WheelScrollRight { move-column-right; }  // Conflict: user has same binding
+    // Mod+Ctrl+WheelScrollLeft  { move-column-left; }  // Conflict: user has same binding
+
+    // Mod+Shift+WheelScrollDown      { focus-column-right; }  // Conflict: user has same binding
+    // Mod+Shift+WheelScrollUp        { focus-column-left; }  // Conflict: user has same binding
+    // Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }  // Conflict: user has same binding
+    // Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }  // Conflict: user has same binding
+
+    // === Numbered Workspaces ===
+    // Mod+1 { focus-workspace 1; }  // Conflict: user has same binding
+    // Mod+2 { focus-workspace 2; }  // Conflict: user has same binding
+    // Mod+3 { focus-workspace 3; }  // Conflict: user has same binding
+    // Mod+4 { focus-workspace 4; }  // Conflict: user has same binding
+    // Mod+5 { focus-workspace 5; }  // Conflict: user has same binding
+    // Mod+6 { focus-workspace 6; }  // Conflict: user has same binding
+    // Mod+7 { focus-workspace 7; }  // Conflict: user has same binding
+    // Mod+8 { focus-workspace 8; }  // Conflict: user has same binding
+    // Mod+9 { focus-workspace 9; }  // Conflict: user has same binding
+
+    // === Move to Numbered Workspaces ===
+    // Mod+Shift+1 { move-column-to-workspace 1; }  // Conflict: user has same binding
+    // Mod+Shift+2 { move-column-to-workspace 2; }  // Conflict: user has same binding
+    // Mod+Shift+3 { move-column-to-workspace 3; }  // Conflict: user has same binding
+    // Mod+Shift+4 { move-column-to-workspace 4; }  // Conflict: user has same binding
+    // Mod+Shift+5 { move-column-to-workspace 5; }  // Conflict: user has same binding
+    // Mod+Shift+6 { move-column-to-workspace 6; }  // Conflict: user has same binding
+    // Mod+Shift+7 { move-column-to-workspace 7; }  // Conflict: user has same binding
+    // Mod+Shift+8 { move-column-to-workspace 8; }  // Conflict: user has same binding
+    // Mod+Shift+9 { move-column-to-workspace 9; }  // Conflict: user has same binding
+
+    // === Column Management ===
+    // Mod+BracketLeft  { consume-or-expel-window-left; }  // Conflict: user has same binding
+    // Mod+BracketRight { consume-or-expel-window-right; }  // Conflict: user has same binding
+    // Mod+Period { expel-window-from-column; }  // Conflict: user has same binding
+
+    // === Sizing & Layout ===
+    // Mod+R { switch-preset-column-width; }  // Conflict: user has same binding
+    Mod+Shift+R { switch-preset-window-height; }  // No conflict (user uses Mod+Shift+R for package remover, different)
+    // Mod+Ctrl+R { reset-window-height; }  // Conflict: user has same binding
+    // Mod+Ctrl+F { expand-column-to-available-width; }  // Conflict: user has same binding
+    // Mod+C { center-column; }  // Conflict: user has same binding
+    // Mod+Ctrl+C { center-visible-columns; }  // Conflict: user has same binding
+
+    // === Manual Sizing ===
+    // Mod+Minus { set-column-width "-10%"; }  // Conflict: user has same binding
+    // Mod+Equal { set-column-width "+10%"; }  // Conflict: user has same binding
+    // Mod+Shift+Minus { set-window-height "-10%"; }  // Conflict: user has same binding
+    // Mod+Shift+Equal { set-window-height "+10%"; }  // Conflict: user has same binding
+
+    // === Screenshots ===
+    XF86Launch1 { screenshot; }
+    Ctrl+XF86Launch1 { screenshot-screen; }
+    Alt+XF86Launch1 { screenshot-window; }
+    // Print { screenshot; }  // Conflict: user has same binding
+    // Ctrl+Print { screenshot-screen; }  // Conflict: user has same binding
+    // Alt+Print { screenshot-window; }  // Conflict: user has same binding
+    
+    // === System Controls ===
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    // Mod+Shift+P { power-off-monitors; }  // Conflict: user has same binding
+}

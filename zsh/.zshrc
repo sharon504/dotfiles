@@ -1,3 +1,7 @@
+# Autostart tmux if not already inside a session and running interactively
+if [[ -z "$TMUX" && -t 1 ]]; then
+  exec tmux new
+fi
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -61,3 +65,21 @@ _fzf_comprun() {
 
 eval "$(zoxide init zsh)"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# pnpm
+export PNPM_HOME="/home/alpha/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=$PATH:$(go env GOPATH)/bin
+
+
+export PATH="$PATH:home/alpha/.config/flutter/bin"
+

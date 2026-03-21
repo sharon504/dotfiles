@@ -10,3 +10,6 @@
 [submodule "niri"]
 	path = niri
 	url = https://github.com/sharon504/niri-config.git
+[submodule "zsh"]
+	path = zsh
+	url = https://github.com/sharon504/zsh-config.git

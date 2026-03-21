@@ -4,3 +4,6 @@
 [submodule "rofi"]
 	path = rofi
 	url = https://github.com/sharon504/rofi-config.git
+[submodule "hypr"]
+	path = hypr
+	url = https://github.com/sharon504/hypr-config.git

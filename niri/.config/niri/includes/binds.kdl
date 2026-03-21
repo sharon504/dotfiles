@@ -1,11 +1,11 @@
 binds {
     // --- System & App Launchers ---
     Mod+Shift+Slash { show-hotkey-overlay; } // Show this help overlay
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+B hotkey-overlay-title="Run a Browser: zen" { spawn "zen-browser"; }
-    Mod+Space hotkey-overlay-title="Launch rofi" { spawn "~/.config/rofi/launchers/type-1/launcher.sh"; }
+    Mod+Space hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
 
     Mod+Shift+I hotkey-overlay-title="Run package installer" {spawn-sh "kitty --class floating ~/.config/package-manager/package-manager install";}
     Mod+Shift+R hotkey-overlay-title="Run package remover" {spawn-sh "kitty --class floating ~/.config/package-manager/package-manager remove";}
@@ -127,7 +127,7 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // --- Tabbed Mode ---
-    Mod+Q { toggle-column-tabbed-display; } // Toggle tabbed mode for the current column
+    // Mod+Q { toggle-column-tabbed-display; } // Toggle tabbed mode for the current column
 
     // --- Screenshots ---
     Print { screenshot; } // Screenshot entire output

@@ -27,7 +27,16 @@ window-rule {
     open-maximized true
 }
 
-
 layer-rule {
-  match namespace="^swww-daemon$" // Layer rule for the wallpaper daemon
+    match namespace="swww";
+    place-within-backdrop true;
+}
+
+window-rule {
+    match app-id=r#"kitty$"# // Rule for Nautilus
+    // opacity 0.77
+}
+
+window-rule {
+    geometry-corner-radius 0
 }

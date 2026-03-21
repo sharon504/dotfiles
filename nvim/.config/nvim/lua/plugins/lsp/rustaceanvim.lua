@@ -13,7 +13,6 @@ return {
 				end, { desc = "Rust Debuggables", buffer = bufnr })
 			end,
 			default_settings = {
-				-- rust-analyzer language server configuration
 				["rust-analyzer"] = {
 					cargo = {
 						allFeatures = true,
@@ -22,9 +21,11 @@ return {
 							enable = true,
 						},
 					},
-					-- Add clippy lints for Rust
+					-- Use clippy for linting
 					checkOnSave = true,
-					-- Enable diagnostics
+					check = {
+						command = "clippy",
+					},
 					diagnostics = {
 						enable = true,
 					},
@@ -54,18 +55,17 @@ return {
 		},
 	},
 	config = function(_, opts)
-		-- Check if mason.nvim is available
+		-- Check if mason.nvim is available for DAP adapter
 		local has_mason, _ = pcall(require, "mason-registry")
 		if has_mason then
 			local mason_path = vim.fn.stdpath("data") .. "/mason"
 			local codelldb_path = mason_path .. "/packages/codelldb"
 
-			-- Check if the directory exists
 			if vim.fn.isdirectory(codelldb_path) == 1 then
 				local codelldb = codelldb_path .. "/extension/adapter/codelldb"
 				local library_path = codelldb_path .. "/extension/lldb/lib/liblldb.dylib"
 
-				-- Check OS using io.popen (more compatible approach)
+				-- Check OS
 				local handle = io.popen("uname -s")
 				local uname = ""
 				if handle then
@@ -80,20 +80,11 @@ return {
 					library_path = codelldb_path .. "/extension/lldb/bin/liblldb.dll"
 				end
 
-				-- Debug prints to verify paths
-				print("Codelldb executable path:", codelldb)
-				print("Library path:", library_path)
-
 				if vim.fn.filereadable(codelldb) == 1 then
 					opts.dap = {
 						adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb, library_path),
 					}
-					print("DAP adapter configuration set successfully")
-				else
-					print("Codelldb executable not found at:", codelldb)
 				end
-			else
-				print("Codelldb package directory not found at:", codelldb_path)
 			end
 		end
 

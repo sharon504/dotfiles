@@ -12,10 +12,10 @@
 -- including my custom ones
 --
 -- Load external modules first
-local mini_files_km = require("core.mini-file-km")
+local mini_files_km = require("lib.mini-file-km")
 
 -- -- git config is slowing mini.files too much, so disabling it
--- local mini_files_git = require("core.mini-file-git")
+-- local mini_files_git = require("lib.mini-file-git")
 
 return {
 	"echasnovski/mini.files",

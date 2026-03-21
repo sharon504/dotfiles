@@ -42,6 +42,7 @@ return {
 				"query",
 				"vimdoc",
 				"c",
+				"java", -- Java syntax highlighting
 			},
 			incremental_selection = {
 				enable = true,

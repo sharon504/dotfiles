@@ -105,8 +105,18 @@ return {
 				end
 
 				-- Skip autosave if you're in an active snippet
-				if require("luasnip").in_snippet() then
+				-- Note: blink.cmp handles snippets internally
+				-- This check is for compatibility if LuaSnip is installed
+				local has_luasnip, luasnip = pcall(require, "luasnip")
+				if has_luasnip and luasnip.in_snippet() then
 					return false
+				end
+				
+				-- Check if vim.snippet (Neovim 0.10+) is active
+				if vim.snippet and vim.snippet.active then
+					if vim.snippet.active() then
+						return false
+					end
 				end
 
 				return true

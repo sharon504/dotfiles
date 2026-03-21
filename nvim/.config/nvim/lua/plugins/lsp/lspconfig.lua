@@ -7,10 +7,7 @@ return {
 		{ "williamboman/mason-lspconfig.nvim" },
 	},
 	config = function()
-		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
-
-		-- import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
 
 		-- Set up diagnostic symbols and config
@@ -21,7 +18,6 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
 
-			-- Configure diagnostics display
 			vim.diagnostic.config({
 				signs = true,
 				update_in_insert = false,
@@ -56,10 +52,14 @@ return {
 			keymap(
 				{ "n", "v" },
 				"<leader>ca",
-				vim.lsp.buf.code_action,
-				{ buffer = bufnr, desc = "See available code actions" }
+				function()
+					require("actions-preview").code_actions()
+				end,
+				{ buffer = bufnr, desc = "See available code actions (with preview)" }
 			)
-			keymap("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Smart rename" })
+			keymap("n", "<leader>rn", function()
+				return ":IncRename " .. vim.fn.expand("<cword>")
+			end, { buffer = bufnr, expr = true, desc = "Smart rename (with preview)" })
 
 			-- Diagnostics
 			keymap(
@@ -69,15 +69,10 @@ return {
 				{ buffer = bufnr, desc = "Show buffer diagnostics" }
 			)
 			keymap("n", "<leader>d", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show line diagnostics" })
-			keymap("n", "dn", vim.diagnostic.jump, { buffer = bufnr, desc = "Go to previous diagnostic" })
+			keymap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { buffer = bufnr, desc = "Go to previous diagnostic" })
+			keymap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { buffer = bufnr, desc = "Go to next diagnostic" })
 
-			-- Documentation and utilities
-			keymap(
-				"n",
-				"K",
-				vim.lsp.buf.hover,
-				{ buffer = bufnr, desc = "Show documentation for what is under cursor" }
-			)
+			-- Utilities
 			keymap("n", "<leader>rs", ":LspRestart<CR>", { buffer = bufnr, desc = "Restart LSP" })
 		end
 
@@ -86,57 +81,82 @@ return {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
 				setup_lsp_keymaps(ev.buf)
+				
+				-- Enable inlay hints if supported (Neovim 0.10+)
+				local client = vim.lsp.get_client_by_id(ev.data.client_id)
+				if client and client.server_capabilities.inlayHintProvider then
+					vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+				end
 			end,
 		})
 
 		-- Setup diagnostic signs
 		setup_diagnostic_signs()
 
-		-- Get capabilities from cmp
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- Get capabilities from blink.cmp
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-		-- Server-specific configurations to be passed to lspconfig
+		-- LSP servers to install and configure
+		-- All server-specific settings are defined here
 		local servers = {
-			-- These will be passed to lspconfig's setup function
+			-- Lua
 			lua_ls = {
 				settings = {
 					Lua = {
 						diagnostics = { globals = { "vim" } },
 						completion = { callSnippet = "Replace" },
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
+						},
+						telemetry = { enable = false },
 					},
 				},
 			},
-			biome = {
-				root_dir = require("lspconfig.util").root_pattern("biome.json", ".git"),
-			},
-			-- Add other servers here if you want to override their default settings
-			-- Otherwise, mason will install them and they will be set up with defaults
-			eslint = {},
-			ts_ls = {},
-			rust_analyzer = {},
-			pyright = {},
-			clangd = {},
-			graphql = {},
-			emmet_ls = {},
-			ast_grep = {
-				cmd = { "ast-grep", "lsp" },
-				filetypes = {
-					"c",
-					"cpp",
-					"rust",
-					"go",
-					"java",
-					"python",
-					"javascript",
-					"typescript",
-					"html",
-					"css",
-					"kotlin",
-					"dart",
-					"lua",
+
+			-- Python
+			pyright = {
+				settings = {
+					python = {
+						analysis = {
+							typeCheckingMode = "basic",
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+						},
+					},
 				},
-				root_dir = require("lspconfig.util").root_pattern("sgconfig.yaml", "sgconfig.yml"),
 			},
+
+			-- JavaScript/TypeScript
+			ts_ls = {},
+			eslint = {},
+
+			-- Go
+			gopls = {
+				settings = {
+					gopls = {
+						analyses = {
+							unusedparams = true,
+							staticcheck = true,
+						},
+						gofumpt = true,
+					},
+				},
+			},
+
+			-- C/C++
+			clangd = {
+				cmd = {
+					"clangd",
+					"--offset-encoding=utf-16",
+					"--background-index",
+					"--clang-tidy",
+					"--header-insertion=iwyu",
+				},
+			},
+
+			-- Rust: handled by rustaceanvim, but we keep it here for mason to install
+			-- rust_analyzer = {},
 		}
 
 		-- Make sure Mason is set up before mason-lspconfig
@@ -144,21 +164,25 @@ return {
 
 		-- Configure mason-lspconfig to automatically install and manage LSPs
 		mason_lspconfig.setup({
-			ensure_installed = vim.tbl_keys(servers), -- ensures servers in the table above are installed
+			ensure_installed = vim.tbl_keys(servers),
+			automatic_installation = true,
 			handlers = {
-				-- The first entry (without a key) will be the default handler.
-				-- This will be called for each server that is installed.
+				-- Default handler for all servers
 				function(server_name)
+					-- Skip rust_analyzer as it's handled by rustaceanvim
+					if server_name == "rust_analyzer" then
+						return
+					end
+
 					local opts = {
 						capabilities = capabilities,
 					}
-					-- Get the server-specific settings from our `servers` table
+
 					local server_config = servers[server_name]
 					if server_config then
-						-- Extend the default opts with the server-specific settings
 						opts = vim.tbl_deep_extend("force", opts, server_config)
 					end
-					-- Finally, set up the server with lspconfig
+
 					lspconfig[server_name].setup(opts)
 				end,
 			},

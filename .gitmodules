@@ -13,3 +13,6 @@
 [submodule "zsh"]
 	path = zsh
 	url = https://github.com/sharon504/zsh-config.git
+[submodule "tmux"]
+	path = tmux
+	url = https://github.com/sharon504/tmux-config.git

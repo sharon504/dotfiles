@@ -1,3 +1,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/sharon504/nvim-config.git
+[submodule "rofi"]
+	path = rofi
+	url = https://github.com/sharon504/rofi-config.git

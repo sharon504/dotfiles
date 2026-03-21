@@ -7,3 +7,6 @@
 [submodule "hypr"]
 	path = hypr
 	url = https://github.com/sharon504/hypr-config.git
+[submodule "niri"]
+	path = niri
+	url = https://github.com/sharon504/niri-config.git

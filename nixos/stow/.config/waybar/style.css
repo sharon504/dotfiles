@@ -1,0 +1,131 @@
+/*
+ * Waybar Style – Blended Background with Image Colors
+ */
+@import "../../.cache/wal/colors-waybar.css";
+* {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+window#waybar {
+  background-color: alpha(@background, 0.9);
+  color: @foreground;
+  padding: 0 10px;
+}
+
+/* ----------------- Workspaces ----------------- */
+#workspaces {
+  padding: 0 8px;
+}
+
+#workspaces button {
+  padding: 4px 10px;
+  margin: 0 4px;
+  /* background: @background; */
+  color: @foreground;
+  border-bottom: 2px solid;
+  transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+  border-bottom: 2px solid @color4;
+  color: @color4;
+  background-color: alpha(@color4, 0.15);
+  border-radius: 4px;
+}
+
+#workspaces button:hover {
+  border-bottom: 2px solid @color6;
+  color: @color6;
+  background-color: alpha(@color6, 0.15);
+  border-radius: 4px;
+}
+
+/* ----------------- Module Defaults ----------------- */
+#clock,
+#cpu,
+#memory,
+#battery,
+#network,
+#pulseaudio,
+#bluetooth,
+#custom-appmenu,
+#custom-filemanager,
+#custom-exit,
+#user,
+#tray {
+  padding: 4px 10px;
+  margin: 0;
+  /* background-color: alpha(@color0, 0.7); */
+  color: @foreground;
+}
+
+/* ----------------- Hover ----------------- */
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#custom-appmenu:hover,
+#custom-filemanager:hover,
+#custom-exit:hover,
+#user:hover {
+  background-color: alpha(@color1, 0.8);
+  color: @color7;
+}
+
+/* ----------------- Pulseaudio ----------------- */
+#pulseaudio.muted {
+  /* background-color: alpha(@color1, 0.6); */
+  color: @color7;
+}
+
+/* ----------------- Custom app menu ----------------- */
+#custom-appmenu {
+  background-color: alpha(@color2, 0.7);
+  color: @color7;
+}
+
+/* ----------------- Battery ----------------- */
+#clock {
+  background-color: alpha(@color2, 0.7);
+  color: @color7;
+}
+
+#battery.critical:not(.charging) {
+  background-color: alpha(@color1, 0.9);
+  color: @color7;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+  }
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ----------------- Tray ----------------- */
+#tray > .needs-attention {
+  background-color: alpha(@color1, 0.8);
+  color: @color7;
+}
+
+/* ----------------- Window Title ----------------- */
+#window {
+  padding: 4px 10px;
+  margin: 0 5px;
+  background-color: alpha(@color4, 0.15);
+  color: @color4;
+}

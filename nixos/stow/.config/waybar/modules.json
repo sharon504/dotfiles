@@ -1,0 +1,141 @@
+//  __  __           _       _
+// |  \/  | ___   __| |_   _| | ___  ___
+// | |\/| |/ _ \ / _` | | | | |/ _ \/ __|
+// | |  | | (_) | (_| | |_| | |  __/\__ \
+// |_|  |_|\___/ \__,_|\__,_|_|\___||___/
+//
+//
+// by Stephan Raabe (2023)
+// -----------------------------------------------------
+//
+{
+  // Workspaces
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "sort-by-name": true,
+    "format": "{name}"
+  },
+
+  // Hyprland Window
+  "hyprland/window": {
+    "rewrite": {
+      "(.*) - Brave": "$1",
+      "(.*) - Chromium": "$1",
+      "(.*) - Brave Search": "$1",
+      "(.*) - Outlook": "$1",
+      "(.*) Microsoft Teams": "$1"
+    },
+    "format-disable": "",
+    "separate-outputs": true
+  },
+
+  // Filemanager Launcher
+  "custom/filemanager": {
+    "format": " ",
+    "on-click": "~/.config/hypr/scripts/waypaper.sh",
+    "tooltip": false
+  },
+
+  // Rofi Application Launcher
+  "custom/appmenu": {
+    "format": "󱄅 ",
+    "on-click": "~/.config/rofi/launchers/type-1/launcher.sh",
+    "tooltip": false
+  },
+
+  // Power Menu
+  "custom/exit": {
+    "format": " ",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+
+  // System tray
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
+  },
+
+  // Clock
+  "clock": {
+    // "timezone": "America/New_York",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+
+  // CPU
+  "cpu": {
+    "format": "   {usage}% "
+  },
+
+  // Memory
+  "memory": {
+    "format": "   {}% "
+  },
+
+  // Network
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "   {essid} ({signalStrength}%)",
+    "format-ethernet": "  {ipaddr}",
+    "format-disconnected": "  ", //An empty format will hide the module.
+    "tooltip-format": "  {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "  {ipaddr}",
+    "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty --class Floating nmtui",
+    "max-length": 50
+  },
+
+  // Battery
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}   {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon}  {volume}%",
+    "format-muted": "  {format_source} ",
+    "format-source": "{volume}%  ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": "󱡏  ",
+      "headset": "󱡏 ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": ["", " ", " "]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  // Bluetooth
+  "bluetooth": {
+    "format": " ",
+    "format-disabled": "",
+    "format-off": "󰂲 ",
+    "format-connected-battery": "󰥉 {device_battery_percentage}%",
+    "interval": 30,
+    "on-click": "blueman-manager"
+  },
+
+  // Other
+  "user": {
+    "format": "{user}",
+    "interval": 60,
+    "icon": false
+  }
+}

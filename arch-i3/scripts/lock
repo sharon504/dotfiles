@@ -1,0 +1,36 @@
+#!/bin/sh
+
+BLANK='#00000000'
+CLEAR='#00ffff22'
+DEFAULT='#00FFFFFF'
+TEXT='#00FFFFFF'
+WRONG='#880000bb'
+VERIFYING='#00FFFFFF'
+
+i3lock \
+--insidever-color=$CLEAR     \
+--ringver-color=$VERIFYING   \
+\
+--insidewrong-color=$CLEAR   \
+--ringwrong-color=$WRONG     \
+\
+--inside-color=$BLANK        \
+--ring-color=$DEFAULT        \
+--line-color=$BLANK          \
+--separator-color=$DEFAULT   \
+\
+--verif-color=$BLANK          \
+--wrong-color=$BLANK          \
+--time-color=$TEXT           \
+--date-color=$TEXT           \
+--layout-color=$TEXT         \
+--keyhl-color=$WRONG         \
+--bshl-color=$WRONG          \
+\
+--screen 1                   \
+--blur 9                     \
+--clock                      \
+--indicator                  \
+--time-str="%H:%M:%S"        \
+--date-str="%A, %Y-%m-%d"       \
+-i $HOME/.lock/lockscreen.png \

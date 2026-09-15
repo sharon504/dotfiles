@@ -1,27 +1,27 @@
 [submodule "nvim"]
 	path = nvim
-	url = git@github.com/sharon504/nvim-config.git
+	url = git@github.com:sharon504/nvim-config.git
 [submodule "rofi"]
 	path = rofi
-	url = git@github.com/sharon504/rofi-config.git
+	url = git@github.com:sharon504/rofi-config.git
 [submodule "hypr"]
 	path = hypr
-	url = git@github.com/sharon504/hypr-config.git
+	url = git@github.com:sharon504/hypr-config.git
 [submodule "niri"]
 	path = niri
-	url = git@github.com/sharon504/niri-config.git
+	url = git@github.com:sharon504/niri-config.git
 [submodule "zsh"]
 	path = zsh
-	url = git@github.com/sharon504/zsh-config.git
+	url = git@github.com:sharon504/zsh-config.git
 [submodule "tmux"]
 	path = tmux
-	url = git@github.com/sharon504/tmux-config.git
+	url = git@github.com:sharon504/tmux-config.git
 [submodule "kanata"]
 	path = kanata
-	url = git@github.com/sharon504/kanata-config.git
+	url = git@github.com:sharon504/kanata-config.git
 [submodule "kitty"]
 	path = kitty
-	url = git@github.com/sharon504/kitty-config.git
+	url = git@github.com:sharon504/kitty-config.git
 [submodule "waybar"]
 	path = waybar
-	url = git@github.com/sharon504/waybar-config.git
+	url = git@github.com:sharon504/waybar-config.git
